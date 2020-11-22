@@ -1,25 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import 'react-native-gesture-handler';
 import * as React from 'react';
-import { NavigationContainer,createSwitchNavigator } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { AuthNavigator, MyCustomNavigator,trackDetails } from "./src/navigations/MyCustomNavigator";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+
+
+const auth=true;
+
+function App() {
+  return <NavigationContainer>
+   {!auth&&<AuthNavigator/>} 
+   {auth&&<MyCustomNavigator/>}
+   {/* {auth&&<trackDetails/>} */}
+  </NavigationContainer>
 }
+export default App;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
