@@ -7,13 +7,12 @@ import { AuthNavigator, MyCustomNavigator,trackDetails } from "./src/navigations
 
 
 
-const auth=true;
+const auth=false;
 
 function App() {
   return <NavigationContainer>
    {!auth&&<AuthNavigator/>} 
    {auth&&<MyCustomNavigator/>}
-   {/* {auth&&<trackDetails/>} */}
   </NavigationContainer>
 }
 export default App;

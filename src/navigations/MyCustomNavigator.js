@@ -1,4 +1,5 @@
 import React from 'react';
+import {SafeAreaView} from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import AccountScreen from '../screens/AccountScreen';
@@ -14,9 +15,14 @@ const mainFlow = createBottomTabNavigator();
 
 export function AuthNavigator() {
   return <loginFlow.Navigator>
-    <loginFlow.Screen name="Signup" component={SignupScreen} />
+    <loginFlow.Screen
+      name="Signup"
+      component={SignupScreen}
+      options={{ headerShown: false }}
+    />
     <loginFlow.Screen name="Signin" component={SigninScreen} />
   </loginFlow.Navigator>
+
 }
 
 export function trackDetails() {
@@ -28,10 +34,6 @@ export function trackDetails() {
 
 export function MyCustomNavigator() {
   return <mainFlow.Navigator>
-    {/* <trackListFlow.Navigator>
-      <trackListFlow.Screen name="TrackList" component={TrackListScreen} />
-      <trackListFlow.Screen name="TrackDetail" component={TrackDetailScreen} />
-    </trackListFlow.Navigator> */}
     <mainFlow.Screen name="TrackList" component={trackDetails} />
     <mainFlow.Screen name="Account" component={AccountScreen} />
     <mainFlow.Screen name="TrackCreate" component={TrackCreateScreen} />
