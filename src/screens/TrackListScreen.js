@@ -5,7 +5,7 @@ const TrackListScreen = props => {
     return (
         <>
             <Text style={{ fontSize: 48 }}>Track List Screen</Text>
-            <Button title="Go to Signin" onPress={() => props.navigation.navigate('TrackDetail')} />
+            <Button title="Go to Track Detail" onPress={() => props.navigation.navigate('TrackDetail')} />
 
         </>
 

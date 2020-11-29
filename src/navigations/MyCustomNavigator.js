@@ -20,7 +20,11 @@ export function AuthNavigator() {
       component={SignupScreen}
       options={{ headerShown: false }}
     />
-    <loginFlow.Screen name="Signin" component={SigninScreen} />
+    <loginFlow.Screen 
+    name="Signin" 
+    component={SigninScreen}
+    options={{ headerShown: false }}
+     />
   </loginFlow.Navigator>
 
 }
