@@ -8,10 +8,13 @@ import SignupScreen from '../screens/SignupScreen';
 import TrackDetailScreen from '../screens/TrackDetailScreen';
 import TrackListScreen from '../screens/TrackListScreen';
 import TrackCreateScreen from '../screens/TrackCreateScreen';
+import ResolveAuthScreen from '../screens/ResolveAuthScreen';
 
 const loginFlow = createStackNavigator();
 const trackListFlow = createStackNavigator();
 const mainFlow = createBottomTabNavigator();
+const initialFlow = createStackNavigator();
+
 
 export function AuthNavigator() {
   return <loginFlow.Navigator>
@@ -26,7 +29,6 @@ export function AuthNavigator() {
     options={{ headerShown: false }}
      />
   </loginFlow.Navigator>
-
 }
 
 export function trackDetails() {
@@ -42,14 +44,4 @@ export function MyCustomNavigator() {
     <mainFlow.Screen name="Account" component={AccountScreen} />
     <mainFlow.Screen name="TrackCreate" component={TrackCreateScreen} />
   </mainFlow.Navigator>
-}
-
-const auth = false;
-
-
-export function navigator(){
-  return<NavigationContainer>
-  {!auth && <AuthNavigator />}
-  {auth && <MyCustomNavigator />}
-</NavigationContainer>
 }
