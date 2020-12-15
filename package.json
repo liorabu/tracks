@@ -15,6 +15,7 @@
     "@react-navigation/stack": "^5.12.6",
     "axios": "^0.21.0",
     "expo": "~39.0.2",
+    "expo-location": "^9.0.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.4.tar.gz",
