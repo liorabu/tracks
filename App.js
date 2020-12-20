@@ -6,6 +6,8 @@ import { Provider as AuthProvider } from './src/contexts/AuthContext';
 import { Context as AuthContext } from './src/contexts/AuthContext';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import ResolveAuthScreen from './src/screens/ResolveAuthScreen';
+import { Provider as LocationProvider } from './src/contexts/LocationContext';
+
 
 
 const App = () => {
@@ -31,9 +33,11 @@ const App = () => {
 
 export default () => {
   return (
-    <AuthProvider>
-      <App />
-    </AuthProvider>
+    <LocationProvider>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </LocationProvider>
   )
 }
 
