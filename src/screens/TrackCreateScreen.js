@@ -1,24 +1,28 @@
 import '../_mockLocation';
-import React, { useEffect, useContext } from 'react';
-import { StyleSheet } from 'react-native';
+import React, {  useContext, useCallback } from 'react';
+import { StyleSheet, ScrollView } from 'react-native';
 import { Text } from 'react-native-elements';
 import Map from '../components/Map';
-import {Context as LocationContext} from '../contexts/LocationContext';
+import { Context as LocationContext } from '../contexts/LocationContext';
 import useLocation from '../hooks/useLocation';
 import { useIsFocused } from '@react-navigation/native';
+import TrackForm from '../components/TrackForm';
 
 const TrackCreateScreen = () => {
     const isFocused = useIsFocused();
-    const { addLocation } = useContext(LocationContext);
-    const [err]= useLocation(isFocused,addLocation);
+    const { state, addLocation } = useContext(LocationContext);
+    const callback=useCallback((location) => {
+        addLocation(location, state.recording)
+    },[state.recording]);
+    const [err] = useLocation(isFocused, callback);
 
     return (
-        <>
-
+        <ScrollView>
             <Text h2>Create a Track</Text>
             <Map />
             {err && <Text>Please enable location services</Text>}
-        </>
+            <TrackForm />
+        </ScrollView>
     )
 };
 
